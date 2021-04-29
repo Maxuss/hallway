@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Loading.unity
-    guid: 0bd281be0aea5be4f935404738ad4e5a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Hallway.unity
     guid: 7324870519423a4498390df78129b349
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 7fe41abf82c14fa49bc59584939305fa
   m_configObjects: {}

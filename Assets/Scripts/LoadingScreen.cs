@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 public class LoadingScreen : MonoBehaviour
 {
-    private int curMask = 0;
+    private int _curMask;
     [SerializeField]
     private Image[] masks;
 
-    List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
+    private readonly List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
     private void Awake()
     {
         SceneManager.LoadSceneAsync("Hallway");
@@ -22,37 +22,38 @@ public class LoadingScreen : MonoBehaviour
         _scenesLoading.Add(SceneManager.LoadSceneAsync("Hallway"));
         StartCoroutine(GetSceneLoadProgress());
     }
-
-    float totalProgress;
     public IEnumerator GetSceneLoadProgress()
     {
         while (!_scenesLoading[0].isDone)
         {
-            Image current = masks[curMask];
-            if (current.fillAmount == 0)
+            Image current = masks[_curMask];
+            if (current.fillAmount.Equals(0))
             {
-                while (current.fillAmount != 1)
+                while (!current.fillAmount.Equals(1f))
                 {
-                    current.fillAmount += 0.01f;
+                    current.fillAmount += 0.1f;
+                    yield return new WaitForSeconds(1);
                 }
             }
-            else if(current.fillAmount == 1)
+            else if(current.fillAmount.Equals(1))
             {
                 while (current.fillAmount != 0)
+                    
                 {
-                    current.fillAmount -= 0.01f;
+                    current.fillAmount -= 0.1f;
+                    yield return new WaitForSeconds(1);
                 }
             }
-            switch(curMask)
+            switch(_curMask)
             {
                 case 0:
-                    curMask = 1;
+                    _curMask = 1;
                     break;
                 case 1:
-                    curMask = 0;
+                    _curMask = 0;
                     break;
                 default:
-                    curMask = 0;
+                    _curMask = 0;
                     break;
             }
             yield return null;

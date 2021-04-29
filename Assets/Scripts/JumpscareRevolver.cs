@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
-
 namespace DefaultNamespace
 {
     class JumpscareRevolver : MonoBehaviour
@@ -12,11 +10,12 @@ namespace DefaultNamespace
         [SerializeField] private GameObject triggerEnter;
         [SerializeField] private GameObject triggerExit;
         [SerializeField] private GameObject protect;
-
+        private Animation _talk;
         private void Start()
         {
             waiter.SetActive(false);
             protect.SetActive(false);
+            _talk = waiter.GetComponent<Animation>();
         }
         private void OnTriggerEnter(Collider other)
         {
@@ -26,6 +25,7 @@ namespace DefaultNamespace
                 spook.Play();
                 waiter.SetActive(true);
                 protect.SetActive(true);
+                _talk.Play();
             }
             else if (other.CompareTag(triggerExit.tag))
             {
