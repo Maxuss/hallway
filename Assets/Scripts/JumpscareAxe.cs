@@ -7,19 +7,25 @@ namespace DefaultNamespace
     public class JumpscareAxe : MonoBehaviour
     {
         [SerializeField] private GameObject waiter;
-        [SerializeField] private AudioSource appear;
+        [SerializeField] private AudioSource door;
         [SerializeField] private AudioSource disappear;
         [SerializeField] private GameObject trigger;
         [SerializeField] private GameObject protect;
 
+        private void Start()
+        {
+            waiter.SetActive(false);
+            protect.SetActive(false);
+        }
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag(trigger.tag))
             {
                 waiter.SetActive(true);
-                appear.Play();
+                door.Play();
                 protect.SetActive(true);
-                Invoke(nameof(Disappear), 3);
+                Invoke(nameof(Disappear), 5);
             }
         }
         private void Disappear()

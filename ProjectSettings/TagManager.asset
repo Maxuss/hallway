@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WaiterE
   - WaiterX
+  - Exit
   layers:
   - Default
   - TransparentFX
