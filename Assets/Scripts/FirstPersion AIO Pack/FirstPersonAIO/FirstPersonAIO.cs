@@ -18,6 +18,7 @@ public class FirstPersonAIO : MonoBehaviour {
 
     #region Input Settings
     public bool controllerPauseState = false;
+    private static bool testing = false;
     #endregion
 
     #region Look Settings
