@@ -25,7 +25,6 @@ namespace DefaultNamespace
                 spook.Play();
                 waiter.SetActive(true);
                 protect.SetActive(true);
-                _talk.Play();
             }
             else if (other.CompareTag(triggerExit.tag))
             {

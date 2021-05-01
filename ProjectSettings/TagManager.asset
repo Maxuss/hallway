@@ -7,6 +7,10 @@ TagManager:
   - WaiterE
   - WaiterX
   - Exit
+  - V1
+  - V2
+  - V3
+  - V4
   layers:
   - Default
   - TransparentFX

@@ -17,7 +17,7 @@ namespace DefaultNamespace
             _x += vInput;
             _y -= hInput;
             _x = Mathf.Clamp(_x, -90, 90);
-            camera.transform.eulerAngles = new Vector3(-_x, -_y, 0.0f);
+            camera.transform.eulerAngles = new Vector3(_x, _y, 0.0f);
         }
     }
 }
